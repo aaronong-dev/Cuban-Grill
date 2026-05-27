@@ -117,30 +117,34 @@
         color: var(--muted);
       }
 
-      .facebook-embed {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto clamp(2rem, 5vw, 3rem);
-        max-width: 500px;
+      .menu-showcase {
+        text-align: center;
+        margin-bottom: clamp(2rem, 5vw, 3rem);
       }
 
-      .facebook-embed iframe {
-        width: 100%;
-        max-width: 500px;
-        height: 729px;
-        border: none;
-        overflow: hidden;
-        border-radius: 12px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      .section-heading {
+        margin: 0 0 0.5rem;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
       }
 
-      .gallery {
+      .section-lede {
+        margin: 0 auto clamp(1.25rem, 3vw, 1.75rem);
+        max-width: 28rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .photo-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: clamp(0.65rem, 2vw, 1rem);
       }
 
-      .gallery figure {
+      .photo-grid figure {
         margin: 0;
         position: relative;
         border-radius: 12px;
@@ -150,7 +154,7 @@
         border: 1px solid rgba(248, 244, 239, 0.08);
       }
 
-      .gallery img {
+      .photo-grid img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -158,11 +162,11 @@
         transition: transform 0.45s ease;
       }
 
-      .gallery figure:hover img {
+      .photo-grid figure:hover img {
         transform: scale(1.04);
       }
 
-      .gallery figcaption {
+      .photo-grid figcaption {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -181,6 +185,23 @@
         pointer-events: none;
       }
 
+      .facebook-embed {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto clamp(2rem, 5vw, 3rem);
+        max-width: 500px;
+      }
+
+      .facebook-embed iframe {
+        width: 100%;
+        max-width: 500px;
+        height: 729px;
+        border: none;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+
       .footer {
         margin-top: clamp(2.25rem, 5vw, 3.25rem);
         padding-top: 1.5rem;
@@ -196,14 +217,14 @@
       }
 
       @media (max-width: 700px) {
-        .gallery {
+        .photo-grid {
           grid-template-columns: 1fr;
           max-width: 420px;
           margin-left: auto;
           margin-right: auto;
         }
 
-        .gallery figure {
+        .photo-grid figure {
           aspect-ratio: 16 / 10;
         }
       }
@@ -225,8 +246,49 @@
         <h1 id="coming-soon-heading"><span>Coming Soon</span></h1>
         <p class="lede">
           Something delicious is on the way. Our mobile kitchen is gearing up
-          to bring you the flavors you love—stay tuned.
+          to bring you the flavors you love. Follow us on Facebook for updates.
         </p>
+      </section>
+
+      <section
+        id="menu"
+        class="menu-showcase"
+        aria-labelledby="menu-showcase-heading"
+      >
+        <h2 id="menu-showcase-heading" class="section-heading">From the menu</h2>
+        <p class="section-lede">A taste of what's coming</p>
+        <div class="photo-grid">
+          <figure>
+            <img
+              src="Menu/plate-1.png"
+              alt="Cuban plate with rice, beans, and plantains"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption>Combo Plate</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="Menu/sandwhich-2.jpg"
+              alt="The Sloppy Cuban — Cuban Grill signature sandwich"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption>The Sloppy Cuban</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="Menu/sandwhich-1.png"
+              alt="Media Noche sandwich on a plate"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption>Media Noche</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="facebook-embed" aria-label="Latest on Facebook">
@@ -243,7 +305,7 @@
         ></iframe>
       </section>
 
-      <section class="gallery" aria-label="Behind the scenes">
+      <section class="photo-grid" aria-label="Behind the scenes">
         <figure>
           <img
             src="photo-1.png"
