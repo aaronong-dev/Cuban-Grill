@@ -117,13 +117,17 @@
         color: var(--muted);
       }
 
+      .location-block {
+        max-width: 32rem;
+        margin: 1rem auto 0;
+      }
+
       .location {
         display: flex;
         align-items: flex-start;
         justify-content: center;
         gap: 0.5rem;
-        max-width: 32rem;
-        margin: 1rem auto 0;
+        margin: 0;
         font-size: 1rem;
         line-height: 1.5;
         text-align: left;
@@ -134,7 +138,7 @@
         width: 1.375rem;
         height: 1.375rem;
         margin-top: 0.15em;
-        color: var(--cream);
+        color: #ea4335;
       }
 
       .location a {
@@ -143,9 +147,38 @@
         transition: color 0.2s ease;
       }
 
+      .location a span {
+        display: block;
+      }
+
+      .location-venue {
+        font-weight: 600;
+        color: var(--cream);
+      }
+
       .location a:hover,
       .location a:focus-visible {
         color: var(--cream);
+      }
+
+      .location a:hover .location-venue,
+      .location a:focus-visible .location-venue {
+        color: var(--cream);
+      }
+
+      .location-map {
+        margin-top: 1rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(248, 244, 239, 0.08);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .location-map iframe {
+        display: block;
+        width: 100%;
+        height: 240px;
+        border: 0;
       }
 
       .menu-showcase {
@@ -333,26 +366,39 @@
           Something delicious is on the way. Our mobile kitchen is gearing up
           to bring you the flavors you love. Follow us on Facebook for updates.
         </p>
-        <p class="location">
-          <svg
-            class="location-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
-            />
-          </svg>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=6305+Paredes+Line+Rd+Brownsville+TX+78526"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            The Broken Sprocket, 6305 Paredes Line Rd, Brownsville, TX 78526
-          </a>
-        </p>
+        <div class="location-block">
+          <p class="location">
+            <svg
+              class="location-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+              />
+            </svg>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=The+Broken+Sprocket+6305+Paredes+Line+Rd+Brownsville+TX+78526"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="location-venue">The Broken Sprocket</span>
+              <span>6305 Paredes Line Rd</span>
+              <span>Brownsville, TX 78526</span>
+            </a>
+          </p>
+          <div class="location-map">
+            <iframe
+              src="https://www.google.com/maps?q=The+Broken+Sprocket,+6305+Paredes+Line+Rd,+Brownsville,+TX+78526&amp;z=18&amp;t=k&amp;output=embed"
+              title="Google Maps — The Broken Sprocket, Cuban Grill food truck location"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
       </section>
 
       <section
