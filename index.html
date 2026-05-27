@@ -117,6 +117,37 @@
         color: var(--muted);
       }
 
+      .location {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.5rem;
+        max-width: 32rem;
+        margin: 1rem auto 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .location-icon {
+        flex-shrink: 0;
+        width: 1.375rem;
+        height: 1.375rem;
+        margin-top: 0.15em;
+        color: var(--cream);
+      }
+
+      .location a {
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .location a:hover,
+      .location a:focus-visible {
+        color: var(--cream);
+      }
+
       .menu-showcase {
         text-align: center;
         margin-bottom: clamp(2rem, 5vw, 3rem);
@@ -202,8 +233,55 @@
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
       }
 
+      .contact {
+        text-align: center;
+        margin-top: clamp(2.5rem, 6vw, 4rem);
+        margin-bottom: clamp(2rem, 5vw, 3rem);
+      }
+
+      .contact-list {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(0.65rem, 2vw, 1rem);
+        max-width: 32rem;
+      }
+
+      .contact-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        border: 1px solid rgba(248, 244, 239, 0.08);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        background: rgba(27, 38, 59, 0.4);
+      }
+
+      .contact-name {
+        font-weight: 600;
+        color: var(--cream);
+      }
+
+      .contact-phone {
+        font-size: 1.0625rem;
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .contact-phone:hover,
+      .contact-phone:focus-visible {
+        color: var(--cream);
+        text-decoration: underline;
+        text-decoration-color: var(--red);
+        text-underline-offset: 0.2em;
+      }
+
       .footer {
-        margin-top: clamp(2.25rem, 5vw, 3.25rem);
+        margin-top: clamp(1.5rem, 4vw, 2.25rem);
         padding-top: 1.5rem;
         border-top: 1px solid rgba(248, 244, 239, 0.12);
         text-align: center;
@@ -228,6 +306,13 @@
           aspect-ratio: 16 / 10;
         }
       }
+
+      @media (max-width: 500px) {
+        .contact-list {
+          grid-template-columns: 1fr;
+          max-width: 18rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -247,6 +332,26 @@
         <p class="lede">
           Something delicious is on the way. Our mobile kitchen is gearing up
           to bring you the flavors you love. Follow us on Facebook for updates.
+        </p>
+        <p class="location">
+          <svg
+            class="location-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+            />
+          </svg>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=6305+Paredes+Line+Rd+Brownsville+TX+78526"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Broken Sprocket, 6305 Paredes Line Rd, Brownsville, TX 78526
+          </a>
         </p>
       </section>
 
@@ -336,6 +441,21 @@
           />
           <figcaption>Almost ready</figcaption>
         </figure>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-heading">Contact</h2>
+        <p class="section-lede">Questions or catering? Give us a call.</p>
+        <ul class="contact-list">
+          <li class="contact-card">
+            <span class="contact-name">Chef Roberto</span>
+            <a class="contact-phone" href="tel:+19568242123">956-824-2123</a>
+          </li>
+          <li class="contact-card">
+            <span class="contact-name">Lenny Vera</span>
+            <a class="contact-phone" href="tel:+19564544141">956-454-4141</a>
+          </li>
+        </ul>
       </section>
 
       <footer class="footer">
