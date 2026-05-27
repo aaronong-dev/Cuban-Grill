@@ -277,12 +277,14 @@
         margin: 0 auto;
         padding: 0;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        justify-items: center;
         gap: clamp(0.65rem, 2vw, 1rem);
-        max-width: 32rem;
+        max-width: 18rem;
       }
 
       .contact-card {
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 0.35rem;
@@ -340,12 +342,6 @@
         }
       }
 
-      @media (max-width: 500px) {
-        .contact-list {
-          grid-template-columns: 1fr;
-          max-width: 18rem;
-        }
-      }
     </style>
   </head>
   <body>
@@ -493,10 +489,6 @@
         <h2 id="contact-heading" class="section-heading">Contact</h2>
         <p class="section-lede">Questions or catering? Give us a call.</p>
         <ul class="contact-list">
-          <li class="contact-card">
-            <span class="contact-name">Chef Roberto</span>
-            <a class="contact-phone" href="tel:+19568242123">956-824-2123</a>
-          </li>
           <li class="contact-card">
             <span class="contact-name">Lenny Vera</span>
             <a class="contact-phone" href="tel:+19564544141">956-454-4141</a>
