@@ -249,6 +249,50 @@
         pointer-events: none;
       }
 
+      .photo-grid--pair {
+        grid-template-columns: 1fr;
+        gap: clamp(1rem, 2.5vw, 1.5rem);
+      }
+
+      .photo-grid--pair figure {
+        aspect-ratio: 4 / 3;
+      }
+
+      .fb-delivery-row {
+        display: grid;
+        grid-template-columns: min(500px, 100%) minmax(0, 1fr);
+        gap: clamp(1rem, 3vw, 2rem);
+        align-items: start;
+        margin: 0 auto clamp(2rem, 5vw, 3rem);
+      }
+
+      .fb-delivery-row .facebook-embed {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+        max-width: none;
+      }
+
+      .fb-delivery-row .first-delivery {
+        text-align: left;
+        margin-bottom: 0;
+      }
+
+      .fb-delivery-row .first-delivery .section-lede {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+      }
+
+      .fb-delivery-row .photo-grid--pair {
+        width: 100%;
+        max-width: min(400px, 92%);
+      }
+
+      .fb-delivery-row .photo-grid--pair figure {
+        aspect-ratio: 5 / 4;
+      }
+
       .facebook-embed {
         display: flex;
         justify-content: center;
@@ -329,6 +373,32 @@
         font-weight: 600;
       }
 
+      @media (max-width: 960px) {
+        .fb-delivery-row {
+          grid-template-columns: 1fr;
+        }
+
+        .fb-delivery-row .facebook-embed {
+          justify-content: center;
+        }
+
+        .fb-delivery-row .first-delivery {
+          text-align: center;
+        }
+
+        .fb-delivery-row .first-delivery .section-lede {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 28rem;
+        }
+
+        .fb-delivery-row .photo-grid--pair {
+          max-width: min(520px, 92%);
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
       @media (max-width: 700px) {
         .photo-grid {
           grid-template-columns: 1fr;
@@ -338,6 +408,16 @@
         }
 
         .photo-grid figure {
+          aspect-ratio: 16 / 10;
+        }
+
+        .fb-delivery-row .photo-grid--pair {
+          max-width: min(380px, 92%);
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .fb-delivery-row .photo-grid--pair figure {
           aspect-ratio: 16 / 10;
         }
       }
@@ -438,19 +518,57 @@
         </div>
       </section>
 
-      <section class="facebook-embed" aria-label="Latest on Facebook">
-        <iframe
-          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fthebrokensprocketrgv%2Fposts%2Fpfbid0zcqUwdWB8UUqphNmPn7yQraQyi69Y9HYE7Uuyarvy2vj2UHC3WFqRRgZExcM8dqJl&show_text=true&width=500"
-          width="500"
-          height="729"
-          style="border: none; overflow: hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          title="Facebook post from the Broken Sprocket"
-        ></iframe>
-      </section>
+      <div class="fb-delivery-row">
+        <section class="facebook-embed" aria-label="Latest on Facebook">
+          <iframe
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fthebrokensprocketrgv%2Fposts%2Fpfbid0zcqUwdWB8UUqphNmPn7yQraQyi69Y9HYE7Uuyarvy2vj2UHC3WFqRRgZExcM8dqJl&show_text=true&width=500"
+            width="500"
+            height="729"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title="Facebook post from the Broken Sprocket"
+          ></iframe>
+        </section>
+
+        <section
+          id="first-delivery"
+          class="first-delivery"
+          aria-labelledby="first-delivery-heading"
+        >
+          <p class="eyebrow">First delivery</p>
+          <h2 id="first-delivery-heading" class="section-heading">
+            Off the truck and onto the table
+          </h2>
+          <p class="section-lede">
+            Cuban Grill catered our first order, Sloppy Cubans and sides,
+            delivered to Tipotex, Brownsville, Texas. Thank you for trusting us
+            with your team.
+          </p>
+          <div class="photo-grid photo-grid--pair">
+            <figure>
+              <img
+                src="photo-4.jpeg"
+                alt="Cuban Grill chef shaking hands with a Tipotex representative in the Tipotex parking lot"
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+            </figure>
+            <figure>
+              <img
+                src="photo-5.jpeg"
+                alt="Catering trays of Cuban Grill sandwiches and plantain chips set up for Tipotex"
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+            </figure>
+          </div>
+        </section>
+      </div>
 
       <section class="photo-grid" aria-label="Behind the scenes">
         <figure>
