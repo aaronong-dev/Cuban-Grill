@@ -1,0 +1,261 @@
+.header {
+  --header-inset: clamp(1.5rem, 5vw, 4rem);
+  background: var(--header-bg);
+  border-bottom: 8px solid var(--header-border);
+}
+
+.overHero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 2vw, 2rem);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0.5rem clamp(1rem, 2.5vw, 2rem);
+}
+
+.brand {
+  flex-shrink: 0;
+  display: block;
+  line-height: 0;
+  text-decoration: none;
+  margin-left: var(--header-inset);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  margin-right: var(--header-inset);
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: clamp(6rem, 12vw, 8rem);
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.55rem, 1.25vw, 1.15rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  font-family: var(--font-nav);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--black);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--orange);
+  outline: none;
+}
+
+.linkHighlight {
+  color: var(--orange);
+}
+
+.cta {
+  flex-shrink: 0;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-nav);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--orange);
+  border-radius: 4px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: #9e0f19;
+  outline: none;
+}
+
+.ctaDisabled {
+  cursor: default;
+}
+
+.ctaDisabled:hover,
+.ctaDisabled:focus-visible {
+  background: var(--orange);
+  transform: none;
+}
+
+.menuToggle {
+  display: none;
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 1.5rem;
+  height: 1.25rem;
+}
+
+.menuIcon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--black);
+  border-radius: 1px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.menuToggle[aria-expanded='true'] .menuIcon span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuToggle[aria-expanded='true'] .menuIcon span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle[aria-expanded='true'] .menuIcon span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .header {
+    --header-inset: 0;
+  }
+
+  .inner {
+    position: relative;
+    flex-wrap: nowrap;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .brand {
+    margin-left: 0;
+    z-index: 2;
+  }
+
+  .logo {
+    height: clamp(3.5rem, 14vw, 5rem);
+  }
+
+  .actions {
+    position: static;
+    flex: 1;
+    margin-right: 0;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--header-bg);
+    border-bottom: 0 solid var(--header-border);
+    transition:
+      max-height 0.25s ease,
+      border-bottom-width 0.25s ease;
+  }
+
+  .navOpen {
+    max-height: 20rem;
+    border-bottom-width: 4px;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem clamp(1rem, 2.5vw, 2rem) 1rem;
+  }
+
+  .links li {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .links li:first-child {
+    border-top: none;
+  }
+
+  .link {
+    display: block;
+    padding: 0.85rem 0;
+    font-size: 1.0625rem;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .cta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.55rem 1rem;
+    font-size: 0.9375rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .menuToggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.875rem;
+  }
+}

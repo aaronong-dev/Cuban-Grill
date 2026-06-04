@@ -1,0 +1,63 @@
+.locationBlock {
+  max-width: 32rem;
+  margin: 1rem auto 0;
+}
+
+.location {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.locationIcon {
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin-top: 0.15em;
+  color: #ea4335;
+}
+
+.location a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.location a span {
+  display: block;
+}
+
+.locationVenue {
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.location a:hover,
+.location a:focus-visible {
+  color: var(--cream);
+}
+
+.location a:hover .locationVenue,
+.location a:focus-visible .locationVenue {
+  color: var(--cream);
+}
+
+.locationMap {
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(248, 244, 239, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.locationMap iframe {
+  display: block;
+  width: 100%;
+  height: 240px;
+  border: 0;
+}

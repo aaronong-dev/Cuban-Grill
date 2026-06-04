@@ -1,0 +1,151 @@
+.section {
+  background: var(--white);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 34rem;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.8125rem, 1.5vw, 0.9375rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.headline {
+  margin: 0 0 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.body {
+  position: relative;
+  margin: 0 0 2rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--black);
+}
+
+.bodyLink {
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bodyLink:hover,
+.bodyLink:focus-visible {
+  color: var(--accent-hover);
+  outline: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 14rem;
+  padding: 0.85rem 3.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--black);
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--navy);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  height: clamp(18rem, 36vw, 32rem);
+  min-height: 16rem;
+}
+
+.mainPhoto,
+.sidePhoto {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.mainPhoto {
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+.sidePhoto {
+  grid-column: 2;
+}
+
+.mainPhoto img,
+.sidePhoto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    max-width: none;
+  }
+
+  .gallery {
+    height: clamp(16rem, 55vw, 24rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    max-width: 18rem;
+  }
+}

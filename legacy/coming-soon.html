@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cuban Grill — Home of the Original Sloppy Cuban. Website coming soon."
+    />
+    <title>Cuban Grill — Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0d1b2a;
+        --navy-mid: #1b263b;
+        --cream: #f8f4ef;
+        --red: #c1121f;
+        --gold: #d4a574;
+        --muted: rgba(248, 244, 239, 0.72);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        font-family: "Source Sans 3", system-ui, sans-serif;
+        color: var(--cream);
+        background: var(--navy);
+        background-image: radial-gradient(
+            ellipse 120% 80% at 50% -20%,
+            rgba(193, 18, 31, 0.12),
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 80% 50% at 100% 100%,
+            rgba(27, 38, 59, 0.9),
+            var(--navy)
+          );
+      }
+
+      .page {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2rem)
+          clamp(2.5rem, 6vw, 4rem);
+      }
+
+      .hero {
+        text-align: center;
+        padding-bottom: clamp(2rem, 5vw, 3.5rem);
+      }
+
+      .logo-wrap {
+        display: grid;
+        place-items: center;
+        width: min(300px, 78vw);
+        aspect-ratio: 1;
+        margin: 0 auto clamp(1.25rem, 3vw, 1.75rem);
+        padding: clamp(0.08rem, 0.35vw, 0.15rem);
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        min-height: 0;
+        object-fit: contain;
+        display: block;
+      }
+
+      .eyebrow {
+        margin: 0 0 0.65rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(2.25rem, 6vw, 3.25rem);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: 0.02em;
+      }
+
+      h1 span {
+        display: inline-block;
+        padding-bottom: 0.35rem;
+        border-bottom: 3px solid var(--red);
+      }
+
+      .lede {
+        margin: 0 auto;
+        max-width: 32rem;
+        font-size: 1.0625rem;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+
+      .location-block {
+        max-width: 32rem;
+        margin: 1rem auto 0;
+      }
+
+      .location {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .location-icon {
+        flex-shrink: 0;
+        width: 1.375rem;
+        height: 1.375rem;
+        margin-top: 0.15em;
+        color: #ea4335;
+      }
+
+      .location a {
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .location a span {
+        display: block;
+      }
+
+      .location-venue {
+        font-weight: 600;
+        color: var(--cream);
+      }
+
+      .location a:hover,
+      .location a:focus-visible {
+        color: var(--cream);
+      }
+
+      .location a:hover .location-venue,
+      .location a:focus-visible .location-venue {
+        color: var(--cream);
+      }
+
+      .location-map {
+        margin-top: 1rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(248, 244, 239, 0.08);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .location-map iframe {
+        display: block;
+        width: 100%;
+        height: 240px;
+        border: 0;
+      }
+
+      .menu-showcase {
+        text-align: center;
+        margin-bottom: clamp(2rem, 5vw, 3rem);
+      }
+
+      .section-heading {
+        margin: 0 0 0.5rem;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .section-lede {
+        margin: 0 auto clamp(1.25rem, 3vw, 1.75rem);
+        max-width: 28rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(0.65rem, 2vw, 1rem);
+      }
+
+      .photo-grid figure {
+        margin: 0;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(248, 244, 239, 0.08);
+      }
+
+      .photo-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.45s ease;
+      }
+
+      .photo-grid figure:hover img {
+        transform: scale(1.04);
+      }
+
+      .photo-grid figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.65rem 0.75rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--cream);
+        background: linear-gradient(
+          to top,
+          rgba(13, 27, 42, 0.92),
+          transparent
+        );
+        pointer-events: none;
+      }
+
+      .photo-grid--pair {
+        grid-template-columns: 1fr;
+        gap: clamp(1rem, 2.5vw, 1.5rem);
+      }
+
+      .photo-grid--pair figure {
+        aspect-ratio: 4 / 3;
+      }
+
+      .fb-delivery-row {
+        display: grid;
+        grid-template-columns: min(500px, 100%) minmax(0, 1fr);
+        gap: clamp(1rem, 3vw, 2rem);
+        align-items: start;
+        margin: 0 auto clamp(2rem, 5vw, 3rem);
+      }
+
+      .fb-delivery-row .facebook-embed {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+        max-width: none;
+      }
+
+      .fb-delivery-row .first-delivery {
+        text-align: left;
+        margin-bottom: 0;
+      }
+
+      .fb-delivery-row .first-delivery .section-lede {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+      }
+
+      .fb-delivery-row .photo-grid--pair {
+        width: 100%;
+        max-width: min(400px, 92%);
+      }
+
+      .fb-delivery-row .photo-grid--pair figure {
+        aspect-ratio: 5 / 4;
+      }
+
+      .facebook-embed {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto clamp(2rem, 5vw, 3rem);
+        max-width: 500px;
+      }
+
+      .facebook-embed iframe {
+        width: 100%;
+        max-width: 500px;
+        height: 729px;
+        border: none;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .contact {
+        text-align: center;
+        margin-top: clamp(2.5rem, 6vw, 4rem);
+        margin-bottom: clamp(2rem, 5vw, 3rem);
+      }
+
+      .contact-list {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: clamp(0.65rem, 2vw, 1rem);
+        max-width: 18rem;
+      }
+
+      .contact-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        border: 1px solid rgba(248, 244, 239, 0.08);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        background: rgba(27, 38, 59, 0.4);
+      }
+
+      .contact-name {
+        font-weight: 600;
+        color: var(--cream);
+      }
+
+      .contact-phone {
+        font-size: 1.0625rem;
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .contact-phone:hover,
+      .contact-phone:focus-visible {
+        color: var(--cream);
+        text-decoration: underline;
+        text-decoration-color: var(--red);
+        text-underline-offset: 0.2em;
+      }
+
+      .footer {
+        margin-top: clamp(1.5rem, 4vw, 2.25rem);
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(248, 244, 239, 0.12);
+        text-align: center;
+        font-size: clamp(1.0625rem, 3vw, 1.375rem);
+        color: var(--muted);
+      }
+
+      .footer strong {
+        color: var(--cream);
+        font-weight: 600;
+      }
+
+      @media (max-width: 960px) {
+        .fb-delivery-row {
+          grid-template-columns: 1fr;
+        }
+
+        .fb-delivery-row .facebook-embed {
+          justify-content: center;
+        }
+
+        .fb-delivery-row .first-delivery {
+          text-align: center;
+        }
+
+        .fb-delivery-row .first-delivery .section-lede {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 28rem;
+        }
+
+        .fb-delivery-row .photo-grid--pair {
+          max-width: min(520px, 92%);
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .photo-grid {
+          grid-template-columns: 1fr;
+          max-width: 420px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .photo-grid figure {
+          aspect-ratio: 16 / 10;
+        }
+
+        .fb-delivery-row .photo-grid--pair {
+          max-width: min(380px, 92%);
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .fb-delivery-row .photo-grid--pair figure {
+          aspect-ratio: 16 / 10;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero" aria-labelledby="coming-soon-heading">
+        <div class="logo-wrap">
+          <img
+            class="logo"
+            src="Cuban-Grill-Logo.png"
+            alt="Cuban Grill — Sabor, Cultura, Tradición. Home of the Original Sloppy Cuban."
+            width="560"
+            height="560"
+          />
+        </div>
+        <p class="eyebrow">Sabor · Cultura · Tradición</p>
+        <h1 id="coming-soon-heading"><span>Coming Soon</span></h1>
+        <p class="lede">
+          Something delicious is on the way. Our mobile kitchen is gearing up
+          to bring you the flavors you love. Follow us on Facebook for updates.
+        </p>
+        <div class="location-block">
+          <p class="location">
+            <svg
+              class="location-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+              />
+            </svg>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=The+Broken+Sprocket+6305+Paredes+Line+Rd+Brownsville+TX+78526"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="location-venue">The Broken Sprocket</span>
+              <span>6305 Paredes Line Rd</span>
+              <span>Brownsville, TX 78526</span>
+            </a>
+          </p>
+          <div class="location-map">
+            <iframe
+              src="https://www.google.com/maps?q=The+Broken+Sprocket,+6305+Paredes+Line+Rd,+Brownsville,+TX+78526&amp;z=18&amp;t=k&amp;output=embed"
+              title="Google Maps — The Broken Sprocket, Cuban Grill food truck location"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="menu"
+        class="menu-showcase"
+        aria-labelledby="menu-showcase-heading"
+      >
+        <h2 id="menu-showcase-heading" class="section-heading">From the menu</h2>
+        <p class="section-lede">A taste of what's coming</p>
+        <div class="photo-grid">
+          <figure>
+            <img
+              src="Menu/plate-1.png"
+              alt="Cuban plate with rice, beans, and plantains"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption>Combo Plate</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="Menu/sandwhich-2.jpg"
+              alt="The Sloppy Cuban — Cuban Grill signature sandwich"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption>The Sloppy Cuban</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="Menu/sandwhich-1.png"
+              alt="Media Noche sandwich on a plate"
+              loading="lazy"
+              width="800"
+              height="600"
+            />
+            <figcaption>Media Noche</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <div class="fb-delivery-row">
+        <section class="facebook-embed" aria-label="Latest on Facebook">
+          <iframe
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fthebrokensprocketrgv%2Fposts%2Fpfbid0zcqUwdWB8UUqphNmPn7yQraQyi69Y9HYE7Uuyarvy2vj2UHC3WFqRRgZExcM8dqJl&show_text=true&width=500"
+            width="500"
+            height="729"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title="Facebook post from the Broken Sprocket"
+          ></iframe>
+        </section>
+
+        <section
+          id="first-delivery"
+          class="first-delivery"
+          aria-labelledby="first-delivery-heading"
+        >
+          <p class="eyebrow">First delivery</p>
+          <h2 id="first-delivery-heading" class="section-heading">
+            Off the truck and onto the table
+          </h2>
+          <p class="section-lede">
+            Cuban Grill catered our first order, Sloppy Cubans and sides,
+            delivered to Tipotex, Brownsville, Texas. Thank you for trusting us
+            with your team.
+          </p>
+          <div class="photo-grid photo-grid--pair">
+            <figure>
+              <img
+                src="photo-4.jpeg"
+                alt="Cuban Grill chef shaking hands with a Tipotex representative in the Tipotex parking lot"
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+            </figure>
+            <figure>
+              <img
+                src="photo-5.jpeg"
+                alt="Catering trays of Cuban Grill sandwiches and plantain chips set up for Tipotex"
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+            </figure>
+          </div>
+        </section>
+      </div>
+
+      <section class="photo-grid" aria-label="Behind the scenes">
+        <figure>
+          <img
+            src="photo-1.png"
+            alt="Cuban Grill mobile kitchen trailer exterior"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <figcaption>On the road</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="photo-2.png"
+            alt="Professional kitchen setup inside the food trailer"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <figcaption>In the kitchen</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="photo-3.png"
+            alt="Cuban Grill trailer with rear service door open"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <figcaption>Almost ready</figcaption>
+        </figure>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-heading">Contact</h2>
+        <p class="section-lede">Questions or catering? Give us a call.</p>
+        <ul class="contact-list">
+          <li class="contact-card">
+            <span class="contact-name">Lenny Vera</span>
+            <a class="contact-phone" href="tel:+19564544141">956-454-4141</a>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <p>Home of the Original <strong>Slopy Cuban</strong></p>
+      </footer>
+    </main>
+  </body>
+</html>

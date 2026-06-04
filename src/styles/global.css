@@ -1,0 +1,36 @@
+@import './tokens.css';
+@import './fonts.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family:
+    'Source Sans 3',
+    -apple-system,
+    system-ui,
+    sans-serif;
+  color: var(--navy);
+  background: var(--white);
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}

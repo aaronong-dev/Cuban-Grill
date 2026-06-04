@@ -1,0 +1,18 @@
+:root {
+  --font-nav: 'KGSecondChances', 'KG Second Chances Solid', cursive;
+  --navy: #0d1b2a;
+  --navy-mid: #1b263b;
+  --cream: #f8f4ef;
+  --red: #c1121f;
+  --gold: #d4a574;
+  --orange: #c1121f;
+  --white: #ffffff;
+  --black: #000000;
+  --header-bg: #ffffff;
+  --header-border: #1d5fa7;
+  --muted: rgba(0, 0, 0, 0.55);
+  --accent: #1d5fa7;
+  --accent-hover: #164a85;
+  --espresso: #3c2415;
+  --espresso-light: #6f4e37;
+}

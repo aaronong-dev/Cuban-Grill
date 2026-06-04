@@ -1,0 +1,13 @@
+.footer {
+  margin-top: clamp(1.5rem, 4vw, 2.25rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(248, 244, 239, 0.12);
+  text-align: center;
+  font-size: clamp(1.0625rem, 3vw, 1.375rem);
+  color: var(--muted);
+}
+
+.footer strong {
+  color: var(--cream);
+  font-weight: 600;
+}

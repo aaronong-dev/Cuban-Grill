@@ -1,0 +1,29 @@
+.embed {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto clamp(2rem, 5vw, 3rem);
+  max-width: 500px;
+}
+
+.embed iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 729px;
+  border: none;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.inRow {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  max-width: none;
+}
+
+@media (max-width: 960px) {
+  .inRow {
+    justify-content: center;
+  }
+}

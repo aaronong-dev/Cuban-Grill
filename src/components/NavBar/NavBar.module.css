@@ -1,0 +1,98 @@
+.nav {
+  background: var(--nav-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.65rem clamp(1rem, 3vw, 2rem);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+  transition: color 0.2s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--gold);
+  outline: none;
+}
+
+.linkActive {
+  color: var(--orange);
+}
+
+.cta {
+  flex-shrink: 0;
+  padding: 0.5rem 1.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--navy);
+  background: var(--white);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background: var(--cream);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.ctaDisabled {
+  cursor: default;
+}
+
+.ctaDisabled:hover,
+.ctaDisabled:focus-visible {
+  background: var(--white);
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .links {
+    justify-content: center;
+  }
+
+  .cta {
+    text-align: center;
+  }
+}
