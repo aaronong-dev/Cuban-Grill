@@ -4,7 +4,7 @@ export const site = {
   logo: '/Cuban-Grill-Logo.png',
   favicon: '/cuban-grill-favicon.png',
   /** Social preview image (absolute path on site) */
-  ogImage: '/hero/Hero-Image.jpg',
+  ogImage: '/hero/Hero-Image.webp',
   phone: '956-454-4141',
   phoneHref: 'tel:+19564544141',
   orderHref: 'tel:+19564544141',
@@ -33,15 +33,15 @@ export const site = {
   },
   heroSlides: [
     {
-      src: '/hero/Hero-Image.jpg',
+      src: '/hero/Hero-Image.webp',
       alt: 'Cuban Grill dishes arranged on a table',
     },
     {
-      src: '/hero/Hero-Image-2.jpg',
+      src: '/hero/Hero-Image-2.webp',
       alt: 'Cuban Grill sandwiches and sides',
     },
     {
-      src: '/hero/Hero-Image-3.jpg',
+      src: '/hero/Hero-Image-3.webp',
       alt: 'Cuban Grill food spread',
     },
   ],
