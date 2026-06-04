@@ -39,10 +39,6 @@ export const site = {
       src: '/hero/Hero-Image-2.jpg',
       alt: 'Cuban Grill food truck at an outdoor food truck park',
     },
-    {
-      src: '/hero/Hero-Image-3.webp',
-      alt: 'Cuban Grill food spread',
-    },
   ],
   footer: {
     logo: '/Cuban-Grill-Logo.png',

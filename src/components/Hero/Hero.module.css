@@ -224,7 +224,7 @@
 
 @media (max-width: 768px) {
   .image {
-    object-position: center center;
+    object-position: 75% center;
   }
 
   .scrim {
