@@ -13,8 +13,27 @@ function navLinkTo(href: string, pathname: string): To {
   return href
 }
 
+function normalizeHash(hash: string): string {
+  if (!hash) return ''
+  return hash.startsWith('#') ? hash : `#${hash}`
+}
+
+function navTarget(to: To, fallbackPathname: string): { pathname: string; hash: string } {
+  if (typeof to === 'string') {
+    const [path, ...hashParts] = to.split('#')
+    return {
+      pathname: path || fallbackPathname,
+      hash: hashParts.length ? `#${hashParts.join('#')}` : '',
+    }
+  }
+  return {
+    pathname: to.pathname ?? fallbackPathname,
+    hash: normalizeHash(to.hash ?? ''),
+  }
+}
+
 export function Header() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   const overHero = pathname === '/'
   const [menuState, setMenuState] = useState({ open: false, path: pathname })
   const menuOpen = menuState.open && menuState.path === pathname
@@ -37,7 +56,14 @@ export function Header() {
       className={`${styles.header} ${overHero ? styles.overHero : ''}`}
     >
       <div className={styles.inner}>
-        <Link to="/" className={styles.brand}>
+        <Link
+          to="/"
+          className={styles.brand}
+          onClick={() => {
+            setMenuOpen(false)
+            if (pathname === '/' && !hash) window.scrollTo(0, 0)
+          }}
+        >
           <img
             className={styles.logo}
             src={site.logo}
@@ -59,7 +85,18 @@ export function Header() {
                   <Link
                     to={navLinkTo(item.href, pathname)}
                     className={`${styles.link} ${item.highlight ? styles.linkHighlight : ''}`}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false)
+                      const target = navTarget(navLinkTo(item.href, pathname), pathname)
+                      if (target.pathname === pathname && target.hash === hash) {
+                        if (hash) {
+                          const id = decodeURIComponent(hash.slice(1))
+                          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+                        } else {
+                          window.scrollTo(0, 0)
+                        }
+                      }
+                    }}
                   >
                     {item.label}
                   </Link>

@@ -5,13 +5,26 @@ import { HomePage } from '@/pages/HomePage'
 import { MenuPage } from '@/pages/MenuPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
-function ScrollToHash() {
+function scrollForLocation(hash: string) {
+  if (hash) {
+    const id = decodeURIComponent(hash.slice(1))
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    return
+  }
+  window.scrollTo(0, 0)
+}
+
+function ScrollRestoration() {
   const { pathname, hash } = useLocation()
 
   useEffect(() => {
+    scrollForLocation(hash)
     if (!hash) return
-    const id = decodeURIComponent(hash.slice(1))
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+
+    const frame = requestAnimationFrame(() => {
+      requestAnimationFrame(() => scrollForLocation(hash))
+    })
+    return () => cancelAnimationFrame(frame)
   }, [pathname, hash])
 
   return null
@@ -20,7 +33,7 @@ function ScrollToHash() {
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToHash />
+      <ScrollRestoration />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
