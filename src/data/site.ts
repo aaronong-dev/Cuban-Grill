@@ -4,10 +4,9 @@ export const site = {
   logo: '/Cuban-Grill-Logo.png',
   favicon: '/cuban-grill-favicon.png',
   /** Social preview image (absolute path on site) */
-  ogImage: '/hero/Hero-Image.webp',
+  ogImage: '/hero/Hero-Image.jpg',
   phone: '956-454-4141',
   phoneHref: 'tel:+19564544141',
-  orderHref: 'tel:+19564544141',
   locations: [
     {
       id: 'brownsville',
@@ -27,18 +26,18 @@ export const site = {
     { label: 'Catering', href: '/#catering', highlight: true },
   ],
   hero: {
-    eyebrow: 'AUTHENTIC CUBAN FLAVOR',
+    eyebrow: 'Authentic Cuban Flavors',
     headline: ['HOME OF THE ORIGINAL,', 'SLOPPY CUBAN'],
     cta: { label: 'VIEW MENU', href: '/menu' },
   },
   heroSlides: [
     {
-      src: '/hero/Hero-Image.webp',
-      alt: 'Cuban Grill dishes arranged on a table',
+      src: '/hero/Hero-Image.jpg',
+      alt: 'Cuban Grill food truck at outdoor patio seating',
     },
     {
-      src: '/hero/Hero-Image-2.webp',
-      alt: 'Cuban Grill sandwiches and sides',
+      src: '/hero/Hero-Image-2.jpg',
+      alt: 'Cuban Grill food truck at an outdoor food truck park',
     },
     {
       src: '/hero/Hero-Image-3.webp',

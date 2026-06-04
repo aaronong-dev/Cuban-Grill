@@ -69,7 +69,7 @@ export function Header() {
           </nav>
 
           <span className={`${styles.cta} ${styles.ctaDisabled}`}>
-            Coming Soon
+            Order now
           </span>
         </div>
 

@@ -18,7 +18,7 @@ export function NavBar() {
           ))}
         </ul>
         <span className={`${styles.cta} ${styles.ctaDisabled}`}>
-          Coming Soon
+          Order now
         </span>
       </div>
     </nav>
