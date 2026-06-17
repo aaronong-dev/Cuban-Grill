@@ -12,8 +12,17 @@ function resolveSiteUrl(env: Record<string, string>): string {
   return 'https://cuban-grill.vercel.app'
 }
 
+function siteUrlHtmlPlugin(siteUrl: string) {
+  return {
+    name: 'cuban-grill-site-url-html',
+    transformIndexHtml(html: string) {
+      return html.replaceAll('__SITE_URL__', siteUrl)
+    },
+  }
+}
+
 function sitemapPlugin(siteUrl: string) {
-  const routes = ['/', '/menu']
+  const routes = ['/', '/menu', '/catering']
   const lastmod = new Date().toISOString().slice(0, 10)
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -52,7 +61,7 @@ export default defineConfig(({ mode }) => {
   const siteUrl = resolveSiteUrl(env)
 
   return {
-    plugins: [react(), sitemapPlugin(siteUrl)],
+    plugins: [react(), siteUrlHtmlPlugin(siteUrl), sitemapPlugin(siteUrl)],
     envPrefix: 'VITE_',
     resolve: {
       alias: {

@@ -2,14 +2,20 @@ import { useCallback, useState } from 'react'
 import { site } from '@/data/site'
 import styles from './Hero.module.css'
 
-export function Hero() {
-  const { hero, heroSlides } = site
-  const slideCount = heroSlides.length
+type HeroSlide = { src: string; alt: string }
+
+type HeroProps = {
+  hero?: typeof site.hero
+  slides?: HeroSlide[]
+}
+
+export function Hero({ hero = site.hero, slides = site.heroSlides }: HeroProps) {
+  const slideCount = slides.length
   const [activeSlide, setActiveSlide] = useState(0)
 
   const goTo = useCallback(
     (index: number) => {
-      if (index === activeSlide) return
+      if (slideCount === 0 || index === activeSlide) return
       setActiveSlide(((index % slideCount) + slideCount) % slideCount)
     },
     [activeSlide, slideCount],
@@ -19,27 +25,29 @@ export function Hero() {
     <section
       className={styles.hero}
       aria-labelledby="hero-heading"
-      aria-roledescription="carousel"
+      aria-roledescription={slideCount > 0 ? 'carousel' : undefined}
     >
-      <div className={styles.viewport}>
-        <div
-          className={styles.track}
-          style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-          aria-live="polite"
-        >
-          {heroSlides.map((slide, index) => (
-            <div key={slide.src} className={styles.slide}>
-              <img
-                className={styles.image}
-                src={slide.src}
-                alt={slide.alt}
-                fetchPriority={index === 0 ? 'high' : undefined}
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            </div>
-          ))}
+      {slideCount > 0 ? (
+        <div className={styles.viewport}>
+          <div
+            className={styles.track}
+            style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+            aria-live="polite"
+          >
+            {slides.map((slide, index) => (
+              <div key={slide.src} className={styles.slide}>
+                <img
+                  className={styles.image}
+                  src={slide.src}
+                  alt={slide.alt}
+                  fetchPriority={index === 0 ? 'high' : undefined}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <div className={styles.scrim} aria-hidden />
 
@@ -59,7 +67,7 @@ export function Hero() {
 
       {slideCount > 1 ? (
         <div className={styles.dots} role="tablist" aria-label="Choose slide">
-          {heroSlides.map((item, index) => (
+          {slides.map((item, index) => (
             <button
               key={item.src}
               type="button"

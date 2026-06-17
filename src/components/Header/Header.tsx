@@ -34,7 +34,7 @@ function navTarget(to: To, fallbackPathname: string): { pathname: string; hash: 
 
 export function Header() {
   const { pathname, hash } = useLocation()
-  const overHero = pathname === '/'
+  const overHero = pathname === '/' || pathname === '/catering'
   const [menuState, setMenuState] = useState({ open: false, path: pathname })
   const menuOpen = menuState.open && menuState.path === pathname
   const setMenuOpen = (open: boolean) => setMenuState({ open, path: pathname })
@@ -80,28 +80,34 @@ export function Header() {
             aria-label="Main"
           >
             <ul className={styles.links}>
-              {site.nav.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    to={navLinkTo(item.href, pathname)}
-                    className={`${styles.link} ${item.highlight ? styles.linkHighlight : ''}`}
-                    onClick={() => {
-                      setMenuOpen(false)
-                      const target = navTarget(navLinkTo(item.href, pathname), pathname)
-                      if (target.pathname === pathname && target.hash === hash) {
-                        if (hash) {
-                          const id = decodeURIComponent(hash.slice(1))
-                          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-                        } else {
-                          window.scrollTo(0, 0)
+              {site.nav.map((item) => {
+                const isCateringActive =
+                  item.highlight && pathname === item.href
+
+                return (
+                  <li key={item.label}>
+                    <Link
+                      to={navLinkTo(item.href, pathname)}
+                      className={`${styles.link} ${item.highlight ? styles.linkHighlight : ''} ${isCateringActive ? styles.linkHighlightActive : ''}`}
+                      aria-current={isCateringActive ? 'page' : undefined}
+                      onClick={() => {
+                        setMenuOpen(false)
+                        const target = navTarget(navLinkTo(item.href, pathname), pathname)
+                        if (target.pathname === pathname && target.hash === hash) {
+                          if (hash) {
+                            const id = decodeURIComponent(hash.slice(1))
+                            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+                          } else {
+                            window.scrollTo(0, 0)
+                          }
                         }
-                      }
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
 

@@ -53,7 +53,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--footer-heading-color);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.38);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.52);
 }
 
 .columnBody {
@@ -132,7 +132,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/footer-texture.png') center / cover no-repeat;
+  background: url('/footer-texture.jpg') center / cover no-repeat;
   mask-image: linear-gradient(
     90deg,
     transparent 0%,

@@ -13,7 +13,6 @@ export function IntroSection() {
             {headline}
           </h2>
           <p className={styles.body}>
-            <span id="catering" className={styles.anchor} tabIndex={-1} />
             {body.map((part, index) =>
               typeof part === 'string' ? (
                 <span key={index}>{part}</span>

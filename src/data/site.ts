@@ -22,8 +22,8 @@ export const site = {
     { label: 'About', href: '/#about' },
     { label: 'Menu', href: '/menu' },
     { label: 'Location', href: '/#locations' },
+    { label: 'Catering', href: '/catering', highlight: true },
     { label: 'Contact', href: '#contact' },
-    { label: 'Catering', href: '/#catering', highlight: true },
   ],
   hero: {
     eyebrow: 'Authentic Cuban Flavors',

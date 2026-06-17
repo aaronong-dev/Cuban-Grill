@@ -8,24 +8,24 @@ export type PhotoItem = {
 
 export const menuItems: PhotoItem[] = [
   {
-    src: '/Menu/plate-1.webp',
-    alt: 'Cuban plate with rice, beans, and plantains',
+    src: '/Menu/Cuban-Plate.png',
+    alt: 'Picadillo bowl with white rice, black beans, and plantain chips',
     caption: 'Combo Plate',
-    width: 800,
-    height: 600,
+    width: 896,
+    height: 1195,
   },
   {
-    src: '/Menu/sandwhich-2.webp',
-    alt: 'The Sloppy Cuban — Cuban Grill signature sandwich',
+    src: '/Menu/Sloppy-Cuban.png',
+    alt: 'The Sloppy Cuban — Cuban Grill signature sandwich with plantain chips',
     caption: 'The Sloppy Cuban',
-    width: 800,
-    height: 600,
+    width: 896,
+    height: 1195,
   },
   {
-    src: '/Menu/sandwhich-1.webp',
-    alt: 'Media Noche sandwich on a plate',
+    src: '/Menu/Media-Noche.png',
+    alt: 'Media Noche sandwich with ham, roasted pork, Swiss cheese, and plantain chips',
     caption: 'Media Noche',
-    width: 800,
-    height: 600,
+    width: 896,
+    height: 1196,
   },
 ]
