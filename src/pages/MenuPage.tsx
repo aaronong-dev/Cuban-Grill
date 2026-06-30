@@ -5,7 +5,14 @@ import styles from './MenuPage.module.css'
 
 const MENU_TITLE = `Menu — ${site.name}`
 const MENU_DESCRIPTION =
-  'Our menu is being updated. Check back soon for Cuban Grill favorites in Brownsville, TX.'
+  'Side orders, entrees, and sandwiches from Cuban Grill in Brownsville, TX — home of the Original Sloppy Cuban.'
+
+const MENU_IMAGE = {
+  src: '/Menu/New-Menu.jpeg',
+  alt: 'Cuban Grill menu with side orders, entrees, and sandwiches',
+  width: 780,
+  height: 1008,
+}
 
 export function MenuPage() {
   return (
@@ -16,12 +23,15 @@ export function MenuPage() {
           <p className={styles.eyebrow}>What we serve</p>
           <h1 className={styles.headline}>Menu</h1>
         </header>
-        <div className={styles.notice} role="status">
-          <p className={styles.noticeTitle}>Menu coming soon</p>
-          <p className={styles.noticeText}>
-            We&apos;re currently updating our menu. Please check back soon.
-          </p>
-        </div>
+        <figure className={styles.menuFigure}>
+          <img
+            src={MENU_IMAGE.src}
+            alt={MENU_IMAGE.alt}
+            width={MENU_IMAGE.width}
+            height={MENU_IMAGE.height}
+            className={styles.menuImage}
+          />
+        </figure>
       </main>
       <Footer />
     </>
